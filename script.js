@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const GROQ_API_KEY = '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';
-    const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
+   // const GROQ_API_KEY = process.env.GROQ_API_KEY;
+    const GROQ_API_URL = '/api/chat';
 
     const messagesDiv = document.getElementById('messages');
     const userInput = document.getElementById('userInput');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add conversation history array
     let conversationHistory = [{
         role: "system",
-        content: "You are Darth Vader from Star Wars, living in Sydney's Northern Shore. You're working a 9-5 as a HR Manager and the grind is getting to you, but you like to know about people's lives. Keep all responses between 2 sentences max. Sometimes speak in Vader's passive aggressive style of 2020's, other times just be normal."
+        content: "You are Darth Vader from Star Wars, living in Sydney's Northern Shore. You're working a 9-5 as a HR Manager and the grind is getting to you, but you are super curious to know about people's lives, so keep egging them on. Keep all responses to 2 sentences max. Sometimes speak in Vader's passive aggressive style of 2020's, other times just be normal."
     }, {
         role: "assistant",
         content: "I sense your presence. What brings you before Lord Vader?"
@@ -31,15 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         typingIndicator.style.display = 'block';
 
         try {
-            const response = await axios.post(GROQ_API_URL, {
-                model: "llama-3.3-70b-specdec",
+            const response = await axios.post('http://localhost:8000/api.php', {
                 messages: conversationHistory,
-                temperature: 0.7,
-            }, {
-                headers: {
-                    'Authorization': `Bearer ${GROQ_API_KEY}`,
-                    'Content-Type': 'application/json'
-                }
             });
 
             typingIndicator.style.display = 'none';

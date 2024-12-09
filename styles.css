@@ -18,6 +18,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .chat-container {
@@ -129,9 +130,9 @@ button:hover {
 .typing-indicator {
     display: none;
     align-self: flex-start;
-    background-color: rgba(3, 218, 198, 0.3);
+    /* background-color: rgb(120 120 120 / 10%); */
     padding: 10px 15px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     color: var(--text-color);
 }
 
