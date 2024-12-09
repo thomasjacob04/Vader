@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Vader</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="https://cdn.openart.ai/stable_diffusion/440d71ee5c49677f5611e55b7bbd512f50fb0b2b_2000x2000.webp">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="robot-image">
+                <img src="https://cdn.openart.ai/stable_diffusion/440d71ee5c49677f5611e55b7bbd512f50fb0b2b_2000x2000.webp" alt="Vader Avatar">
+            </div>
+            <h2>Vader</h2>
+        </div>
+        <div class="messages" id="messages">
+            <div class="message bot-message">I sense your presence. What brings you before Lord Vader?</div>
+        </div>
+        <div class="typing-indicator" id="typing">Vader is typing...</div>
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Type your message..." />
+            <button>Send</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
