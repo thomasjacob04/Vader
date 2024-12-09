@@ -9,6 +9,19 @@ foreach($lines as $line) {
     }
 }
 
+// Debug: Print environment variable status (remove in production)
+error_log('API Key from env: ' . getenv('GROQ_API_KEY'));
+
+// Try different methods to get the env variable
+$groq_api_key = getenv('GROQ_API_KEY') ?: 
+                $_ENV['GROQ_API_KEY'] ?: 
+                $_SERVER['GROQ_API_KEY'];
+
+if (!$groq_api_key) {
+    http_response_code(500);
+    echo json_encode(['error' => 'API key not found']);
+    exit;
+}
 
 
 // Handle CORS
